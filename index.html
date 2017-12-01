@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON Beautifier</title>
+	<style>
+	body{white-space:pre;font-family:monospace}.button{background-color:#fff;padding:10px 15px;text-decoration:none;border:1px solid #e1e1e1;font-size:14px;font-family:Open Sans,sans-serif;font-weight:700;color:#333;margin-bottom:20px;margin-left:-60px}#inout{border-style:inset;width:: 99%;height:620px;background-color:#f0fff0;word-wrap:break-word;overflow:auto}
+	</style>
+</head>
+<body>
+	<button  id="beautify" class="button">Beautify Json</button>
+	<div id="inout" contenteditable="true">
+	</div>
+<script>
+function initialCss(){inOut.style.whiteSpace="normal"}function afterBeautifyCss(){inOut.style.whiteSpace=""}var inOut=document.getElementById("inout");inout.focus();var contenteditable=document.querySelector("[contenteditable]");initialCss(),document.getElementById("beautify").addEventListener("click",function(){afterBeautifyCss();var text=contenteditable.textContent;contenteditable.innerHTML="";var json=JSON.stringify(eval("("+text+")"),null,4);contenteditable.appendChild(document.createTextNode(json))}),inOut.addEventListener("paste",function(){initialCss()},!1);var observer=new MutationObserver(function(t){t.forEach(function(t){0==contenteditable.textContent.length&&initialCss()})}),observerConfig={attributes:!0,childList:!0,characterData:!0},targetNode=inOut;observer.observe(targetNode,observerConfig);
+</script>
+</body>
+</html>
